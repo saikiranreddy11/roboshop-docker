@@ -1,11 +1,11 @@
 # Use an official MySQL image as a base image
-FROM mysql:5.7
+FROM mysql:5.7  
 
 # Set the environment variables for MySQL
-ENV MYSQL_ROOT_PASSWORD=root_password
-ENV MYSQL_DATABASE=cities
-ENV MYSQL_USER=my_user
-ENV MYSQL_PASSWORD=my_password
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+    MYSQL_DATABASE=cities \
+    MYSQL_USER=shipping \
+    MYSQL_PASSWORD=RoboShop@1
 
 # Copy the SQL script to initialize the database schema
 COPY shipping.sql /docker-entrypoint-initdb.d/
