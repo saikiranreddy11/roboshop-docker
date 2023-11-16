@@ -11,4 +11,4 @@ ENV MYSQL_PASSWORD=my_password
 COPY shipping.sql /docker-entrypoint-initdb.d/
 
 # Expose the MySQL port
-EXPOSE 330
+EXPOSE 3306
