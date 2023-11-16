@@ -12,6 +12,11 @@ services:
     container_name: redis
     networks:
     - roboshop
+  mysql:
+    image: mysql:v1
+    container_name: mysql
+    networks:
+      - roboshop
   catalogue:
     image: catalogue:v1
     container_name: catalogue
@@ -27,6 +32,23 @@ services:
     depends_on:
       - mongodb
       - catalogue
+  cart:
+    image: cart:v1
+    container_name: cart
+    networks:
+      - roboshop
+    depends_on:
+      - redis
+      - catalogue
+  shipping:
+    image: shipping:v1
+    container_name: shipping
+    networks:
+      - roboshop
+    depends_on:
+      - cart
+      - mysql
+  
   web:
     image: web:v1
     container_name: web
