@@ -56,6 +56,16 @@ services:
     depends_on:
       - cart
       - mysql
+
+  payment:
+    image: payment:v1
+    container_name: payment
+    networks:
+      - roboshop
+    depends_on:
+      - cart
+      - user
+      - rabbitmq
   
   
   web:
