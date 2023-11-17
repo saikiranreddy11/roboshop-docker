@@ -42,7 +42,7 @@ services:
       - catalogue
   cart:
     image: cart:v1
-    container_name: cart
+    container_name: cart1
     networks:
       - roboshop
     depends_on:
