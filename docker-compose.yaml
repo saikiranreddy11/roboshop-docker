@@ -17,7 +17,7 @@ services:
     image: redis:latest
     container_name: redis
     volumes:
-      mongodb:
+      redis:
         - source: redis
           target: /usr/local/etc/redis
           type: volume
@@ -27,7 +27,7 @@ services:
     image: saikiranreddy11/mysql:v1
     container_name: mysql
     volumes:
-      mongodb:
+      mysql:
         - source: mysql
           target: /var/lib/mysql
           type: volume
@@ -40,7 +40,7 @@ services:
       - RABBITMQ_DEFAULT_USER=roboshop
       - RABBITMQ_DEFAULT_PASS=roboshop123
     volumes:
-      mongodb:
+      rabbitmq:
         - source: rabbitmq
           target: /var/lib/rabbitmq
           type: volume
